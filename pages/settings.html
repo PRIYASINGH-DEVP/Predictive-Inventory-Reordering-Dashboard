@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Settings - StockPilot</title>
+<link rel="icon" href="../icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('sp:theme'))||'dark'}catch(e){}</script>
+</head>
+<body data-page="settings">
+<div class="app"><main class="main" id="view">
+
+<div style="margin-bottom:16px"><h1>Settings</h1></div>
+<section class="grid two">
+ <form class="glass pad" id="pform"><h3>Profile</h3><div class="fg"><label class="f" for="sname">Full name</label><input class="in" id="sname" required></div><div class="fg"><label class="f" for="semail">Email</label><input class="in" id="semail" disabled></div><button class="btn" type="submit">Save profile</button></form>
+ <div class="glass pad"><h3>Appearance</h3><p style="margin-bottom:10px">Theme</p><div class="row" style="margin-bottom:18px"><button class="btn ghost" data-theme-btn="dark">Dark</button><button class="btn ghost" data-theme-btn="light">Light</button></div><p style="margin-bottom:10px">Accent colour</p><div class="row wrap" id="swatches"></div></div>
+</section>
+<section class="glass pad"><h3>Your data</h3><p style="margin-bottom:14px">Everything is stored in this browser. Back it up before clearing browser data.</p>
+<div class="row wrap"><button class="btn ghost" id="backup">Download backup</button><label class="btn ghost" for="restore" tabindex="0">Restore backup</label><input type="file" id="restore" accept=".json" hidden><button class="btn danger" id="reset">Reset to demo data</button><button class="btn ghost" id="out">Log out</button></div></section>
+</main></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../assets/js/data/seed.js"></script>
+<script src="../assets/js/core/core.js"></script>
+<script src="../assets/js/modules/settings.js"></script>
+</body></html>

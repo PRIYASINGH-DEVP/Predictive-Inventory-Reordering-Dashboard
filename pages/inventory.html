@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inventory - StockPilot</title>
+<link rel="icon" href="../icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('sp:theme'))||'dark'}catch(e){}</script>
+</head>
+<body data-page="inventory">
+<div class="app"><main class="main" id="view">
+
+<div class="row between wrap" style="margin-bottom:16px"><div><h1>Inventory</h1><p id="count"></p></div><button class="btn" id="addBtn">Add product</button></div>
+<div class="glass pad toolbar">
+ <input class="in" id="q" type="search" placeholder="Search name, supplier or category" aria-label="Search products">
+ <select class="in" id="fcat" aria-label="Filter by category"></select>
+ <select class="in" id="fst" aria-label="Filter by status"><option value="">All status</option><option value="ok">In stock</option><option value="low">Low stock</option><option value="out">Out of stock</option></select>
+ <select class="in" id="sort" aria-label="Sort products"><option value="name">Name A-Z</option><option value="name:desc">Name Z-A</option><option value="price">Price low to high</option><option value="price:desc">Price high to low</option><option value="qty">Quantity low to high</option><option value="qty:desc">Quantity high to low</option></select>
+</div>
+<div class="glass pad scroll"><table class="tbl"><thead><tr><th>Product</th><th>Category</th><th>Supplier</th><th>Price</th><th>Qty</th><th>Status</th><th>Actions</th></tr></thead><tbody id="rows"></tbody></table><p id="empty" hidden style="padding:20px;text-align:center">No products match. Try a different search or add a product.</p></div>
+<dialog id="dlg" aria-labelledby="dtitle"><form id="pf"><h3 id="dtitle" style="font-size:18px">Add product</h3>
+ <div class="fgrid">
+  <div class="fg" style="grid-column:1/-1"><label class="f" for="pname">Product name</label><input class="in" id="pname" required maxlength="60"></div>
+  <div class="fg"><label class="f" for="pcat">Category</label><input class="in" id="pcat" list="catlist" required maxlength="30"><datalist id="catlist"></datalist></div>
+  <div class="fg"><label class="f" for="psup">Supplier</label><input class="in" id="psup" required maxlength="40"></div>
+  <div class="fg"><label class="f" for="pprice">Price (INR)</label><input class="in" id="pprice" type="number" min="0" step="1" required></div>
+  <div class="fg"><label class="f" for="pqty">Quantity in stock</label><input class="in" id="pqty" type="number" min="0" step="1" required></div>
+  <div class="fg"><label class="f" for="pmin">Low stock level</label><input class="in" id="pmin" type="number" min="0" step="1" required></div>
+  <div class="fg"><label class="f" for="psold">Units sold (last 30 days)</label><input class="in" id="psold" type="number" min="0" step="1" value="0"></div>
+  <div class="fg row" style="grid-column:1/-1"><img id="prev" class="pimg" alt="Product preview" style="width:56px;height:56px"><div style="flex:1"><label class="f" for="pimg">Product image</label><input class="in" id="pimg" type="file" accept="image/*"></div></div>
+ </div>
+ <div class="row" style="justify-content:flex-end"><button type="button" class="btn ghost" id="cancel">Cancel</button><button class="btn" type="submit">Save product</button></div></form></dialog>
+</main></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../assets/js/data/seed.js"></script>
+<script src="../assets/js/core/core.js"></script>
+<script src="../assets/js/modules/inventory.js"></script>
+</body></html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Predictions - StockPilot</title>
+<link rel="icon" href="../icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('sp:theme'))||'dark'}catch(e){}</script>
+</head>
+<body data-page="predictions">
+<div class="app"><main class="main" id="view">
+
+<div style="margin-bottom:16px"><h1>AI predictions</h1><p>Forecasts from your sales speed, stock levels and a 21-day supplier window.</p></div>
+<section class="grid three">
+ <div class="glass pad"><h3>Inventory health score</h3><div class="row" style="justify-content:center"><div class="ring" id="ring"><b>0</b></div></div></div>
+ <div class="glass pad"><h3>Fast, normal and slow movers</h3><div class="chart" style="height:170px"><canvas id="mix"></canvas></div></div>
+ <div class="glass pad"><h3>AI insights</h3><div id="ins"></div></div>
+</section>
+<section class="grid two">
+ <div class="glass pad"><h3>Stock runway (days left)</h3><div id="runway"></div></div>
+ <div class="grid" style="margin:0"><div class="glass pad"><h3>Fast selling</h3><ul class="list" id="fast"></ul></div><div class="glass pad"><h3>Slow moving</h3><ul class="list" id="slow"></ul></div></div>
+</section>
+<section class="glass pad scroll"><h3>Suggested reorders</h3><table class="tbl"><thead><tr><th>Product</th><th>In stock</th><th>Days left</th><th>Order qty</th><th>Est. cost</th><th></th></tr></thead><tbody id="rrows"></tbody></table><p id="rempty" hidden style="padding:16px;text-align:center">Nothing to reorder. Stock looks healthy.</p></section>
+</main></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/js/data/seed.js"></script>
+<script src="../assets/js/core/core.js"></script>
+<script src="../assets/js/core/predict.js"></script>
+<script src="../assets/js/core/charts.js"></script>
+<script src="../assets/js/modules/predictions.js"></script>
+</body></html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analytics - StockPilot</title>
+<link rel="icon" href="../icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('sp:theme'))||'dark'}catch(e){}</script>
+</head>
+<body data-page="analytics">
+<div class="app"><main class="main" id="view">
+
+<div style="margin-bottom:16px"><h1>Analytics</h1><p>Sales, stock and category performance.</p></div>
+<section class="grid two"><div class="glass pad"><h3>Sales trend (orders per week)</h3><div class="chart"><canvas id="c1"></canvas></div></div><div class="glass pad"><h3>Inventory distribution</h3><div class="chart"><canvas id="c2"></canvas></div></div></section>
+<section class="grid two"><div class="glass pad"><h3>Stock by category</h3><div class="chart"><canvas id="c3"></canvas></div></div><div class="glass pad"><h3>Top products by revenue</h3><div class="chart"><canvas id="c4"></canvas></div></div></section>
+<section class="glass pad"><h3>Low stock vs minimum level</h3><div class="chart"><canvas id="c5"></canvas></div></section>
+</main></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/js/data/seed.js"></script>
+<script src="../assets/js/core/core.js"></script>
+<script src="../assets/js/core/charts.js"></script>
+<script src="../assets/js/modules/analytics.js"></script>
+</body></html>

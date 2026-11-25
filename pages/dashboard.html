@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard - StockPilot</title>
+<link rel="icon" href="../icons/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('sp:theme'))||'dark'}catch(e){}</script>
+</head>
+<body data-page="dashboard">
+<div class="app"><main class="main" id="view">
+
+<section class="hero glass" aria-label="Overview"><div><h1>Welcome back, <span id="uname"></span></h1><p id="heroTxt"></p><a class="btn" href="predictions.html">View AI insights</a></div><canvas id="hero3d" aria-hidden="true"></canvas></section>
+<section class="grid cards" aria-label="Key numbers">
+ <div class="card glass tilt"><div class="lbl">Total products</div><div class="val" data-count="tp">0</div></div>
+ <div class="card glass tilt"><div class="lbl">Revenue (30 days)</div><div class="val" data-count="rev">0</div></div>
+ <div class="card glass tilt"><div class="lbl">Orders (4 weeks)</div><div class="val" data-count="ord">0</div></div>
+ <div class="card glass tilt"><div class="lbl">Low stock</div><div class="val" data-count="low">0</div></div>
+ <div class="card glass tilt"><div class="lbl">Reorder suggestions</div><div class="val" data-count="re">0</div></div>
+</section>
+<section class="grid two">
+ <div class="glass pad"><h3>Inventory health</h3><div class="row" style="gap:20px"><div class="ring" id="ring"><b>0</b></div><div><p id="healthTxt"></p><a href="inventory.html" style="font-size:14px;font-weight:600;display:inline-block;margin-top:10px">Open inventory</a></div></div>
+ <h3 style="margin-top:22px">Needs attention</h3><ul class="list" id="alerts"></ul></div>
+ <div class="glass pad"><h3>AI insights</h3><div id="ins"></div></div>
+</section>
+</main></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../assets/js/data/seed.js"></script>
+<script src="../assets/js/core/core.js"></script>
+<script src="../assets/js/effects/scene.js"></script>
+<script src="../assets/js/core/predict.js"></script>
+<script src="../assets/js/modules/dashboard.js"></script>
+</body></html>
